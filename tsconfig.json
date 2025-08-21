@@ -1,21 +1,44 @@
 {
   "compilerOptions": {
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
-    "resolvePackageJsonExports": true,
-    "esModuleInterop": true,
-    "isolatedModules": true,
+    "module": "commonjs",
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "target": "ES2023",
+    "target": "ES2021",
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
     "incremental": true,
-    "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "esModuleInterop": true,
+    "paths": {
+      "@is/infra": ["./infra/"],
+      "@is/mocks": ["./__mocks__"],
+      "@is/packages": ["src/packages"],
+      "@is/integrations/infra": ["./integrations"],
+      "@is/crons/infra": ["./crons"],
+      "@is/event-handlers/infra": ["./event-handlers"],
+      "@is/adapters/packages": ["./integrations/packages"]
+    }
+  },
+  "exclude": ["node_modules", "jest.config.ts", "cdk.out"],
+  "include": [
+    "src/**/*.ts",
+    "infra/**/*.ts",
+    "integrations/**/*.ts",
+    "crons/**/*.ts",
+    "event-handlers/**/*.ts",
+    "__mocks__/**/*.ts",
+    "src/packages/**/*.ts"
+  ],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
   }
 }
